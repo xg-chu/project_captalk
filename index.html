@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="CapTalk: Text-Guided Stylization and Speech-Driven 3D Head Animation">
+    <meta name="keywords" content="CapTalk, Talking Head, Speech-Driven 3D Facial Animation, Text-Guided Style, FLAME, Head Motion Generation">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CapTalk: Text-Guided Stylization and Speech-Driven 3D Head Animation</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .publication-title {
+            font-weight: 700;
+        }
+
+        .publication-authors a {
+            color: #3273dc;
+        }
+
+        .publication-links .button {
+            margin: 0.25rem;
+            font-weight: 600;
+        }
+
+        .btn-arxiv { background-color: #b31b1b; color: #fff; border: none; }
+        .btn-arxiv:hover { background-color: #8f1414; color: #fff; }
+        .btn-github { background-color: #24292e; color: #fff; border: none; }
+        .btn-github:hover { background-color: #000; color: #fff; }
+        .btn-data { background-color: #ffd21e; color: #3a3a3a; border: none; }
+        .btn-data:hover { background-color: #f2c400; color: #3a3a3a; }
+
+        .video-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-card video {
+            width: 100%;
+            display: block;
+            background: #000;
+        }
+
+        .caption-box {
+            padding: 0.85rem 1rem;
+            font-size: 0.82rem;
+            line-height: 1.45;
+            color: #4a4a4a;
+            background: #fafafa;
+            border-top: 1px solid #ededed;
+            flex-grow: 1;
+        }
+
+        .caption-box .tag {
+            font-weight: 600;
+        }
+
+        .demo-section {
+            background-color: #f7f9fc;
+        }
+
+        .bibtex-container pre {
+            border-radius: 10px;
+            background: #f5f5f5;
+            padding: 1.25rem;
+            overflow-x: auto;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e3e6ea;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero is-light">
+        <div class="hero-body">
+            <div class="container is-max-widescreen">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <div class="publication-logo mb-3">
+                            <img src="./static/images/logo.png" alt="CapTalk Logo" style="max-height: 120px;">
+                        </div>
+                        <h1 class="title is-2 publication-title">
+                            CapTalk: Text-Guided Stylization and Speech-Driven 3D Head Animation
+                        </h1>
+                        <h1 class="title is-4 publication-title">
+                            🤩ICLR 2026🤩
+                        </h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://xg-chu.github.io">Xuangeng Chu</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">Yuan Gan<sup>1</sup>,</span>
+                            <span class="author-block">Ziteng Cui<sup>1</sup>,</span>
+                            <span class="author-block">Shuhong Liu<sup>1</sup>,</span>
+                            <span class="author-block">Jian Wang<sup>2</sup>,</span>
+                            <span class="author-block">Bing Zhou<sup>2</sup>,</span>
+                            <span class="author-block">Tatsuya Harada<sup>1,3</sup></span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors mt-2">
+                            <span class="author-block"><sup>1</sup>The University of Tokyo,</span>
+                            <span class="author-block"><sup>2</sup>Snap Research, Snap Inc.,</span>
+                            <span class="author-block"><sup>3</sup>RIKEN AIP</span>
+                        </div>
+
+                        <div class="column has-text-centered mt-3">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a href="#" class="external-link button is-normal is-rounded btn-arxiv">
+                                        <span class="icon"><i class="ai ai-arxiv"></i></span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="#" class="external-link button is-normal is-rounded btn-github">
+                                        <span class="icon"><i class="fab fa-github"></i></span>
+                                        <span>Code (coming)</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="#" class="external-link button is-normal is-rounded btn-data">
+                                        <span class="icon">&#129303;</span>
+                                        <span>Data (coming)</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Abstract ===== -->
+    <section class="section" id="abstract" style="padding-top: 1.5rem;">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column">
+                    <h2 class="title is-3 has-text-centered">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Audio-driven 3D facial animation aims to generate synchronized lip movements and expressive facial expressions from arbitrary audio inputs. However, existing methods typically rely on predefined identity or style latent features, restricting users' ability to flexibly control speaking styles. Moreover, applying a fixed style or identity throughout an entire audio segment often leads to facial animations that fail to adapt to the dynamic emotional content of speech. To overcome these limitations, we revisit the definition of speaking style and construct a large-scale dataset annotated with textual descriptions of both style and emotion. Building on this, we propose a novel talking head generation framework that enables fine-grained control over both speaking style and character emotion. Our model accepts textual descriptions of style and emotion alongside the driving audio, allowing real-time generation of highly synchronized lip movements and facial expressions that faithfully reflect the provided descriptions. Furthermore, our approach supports dynamic style and emotion control during inference, enabling the generation of facial animations that adapt to changing emotions within a single utterance. Experimental results demonstrate that our method achieves superior expressiveness and controllability compared to existing approaches.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Teaser ===== -->
+    <section class="section" style="padding-top: 0.5rem; padding-bottom: 2rem;">
+        <div class="container is-max-desktop has-text-centered">
+            <img src="./static/images/teaser.png" alt="CapTalk Teaser"
+                style="border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);">
+            <p class="content is-size-6 has-text-grey mt-3 has-text-justified">
+                <strong>CapTalk</strong> generates 3D head motions from audio and text captions, enabling the
+                real-time synthesis of realistic and stylized animation sequences. To achieve this, we
+                constructed a new dataset with style and emotion captions.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== Demo Gallery ===== -->
+    <section class="section demo-section" id="demos">
+        <div class="container is-max-desktop">
+
+            <h2 class="title is-3 has-text-centered mb-5">Demo Gallery</h2>
+
+            <!-- Text-Guided Style Control -->
+            <h3 class="title is-4 mb-4">Text-Guided Style &amp; Emotion Control</h3>
+            <p class="content has-text-justified mb-4">
+                Given the <strong>same audio input</strong>, CapTalk generates distinct head motions conditioned on
+                different text captions. Each example below shows the generated result together with the style and
+                emotion captions used as input.
+            </p>
+
+            <div class="columns is-multiline">
+                <div class="column is-half">
+                    <div class="card video-card">
+                        <video controls playsinline preload="metadata" poster="./static/posters/style_a.jpg" src="./static/videos/style/a.mp4"></video>
+                        <div class="caption-box">
+                            <span class="tag is-warning is-light mb-2">Emotion: Happy</span>
+                            <p>"The head movements are subtle, with occasional nods and slight tilts. The mouth movements are natural and expressive, indicating active speech. The facial expressions are neutral to slightly animated, suggesting a conversational tone."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <div class="card video-card">
+                        <video controls playsinline preload="metadata" poster="./static/posters/style_b.jpg" src="./static/videos/style/b.mp4"></video>
+                        <div class="caption-box">
+                            <span class="tag is-warning is-light mb-2">Emotion: Happy</span>
+                            <p>"The person in the video appears to be speaking with a positive emotional tone. The head movements are varied, with the person turning their head to the side and then back to the camera, indicating a change in direction or focus. The mouth movements are expressive, with the person opening their mouth wide, suggesting emphasis or a strong point being made. The speaking style seems to be natural and conversational."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <div class="card video-card">
+                        <video controls playsinline preload="metadata" poster="./static/posters/style_c.jpg" src="./static/videos/style/c.mp4"></video>
+                        <div class="caption-box">
+                            <span class="tag is-light mb-2">Emotion: Neutral</span>
+                            <p>"The person in the video appears to be speaking with a neutral to slightly serious emotional tone. The head movements are varied, with some moments of nodding and others where the head is tilted slightly. The speaking style is natural, with clear articulation and a moderate pace. The mouth movements are subtle, indicating a controlled and deliberate speech pattern."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <div class="card video-card">
+                        <video controls playsinline preload="metadata" poster="./static/posters/style_d.jpg" src="./static/videos/style/d.mp4"></video>
+                        <div class="caption-box">
+                            <span class="tag is-light mb-2">Emotion: Neutral</span>
+                            <p>"The person in the video appears to be speaking with a serious and focused expression. Their head movements are moderate, indicating they are actively engaged in their speech. The mouth movements are subtle, suggesting a controlled and deliberate speaking style. The emotional tone seems to be serious and professional, appropriate for a formal setting like the World Economic Forum. The overall expression is one of confidence and authority."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="section-divider mt-6 mb-6">
+
+            <!-- Comparison with Baselines -->
+            <h3 class="title is-4 mb-4">Comparison with Baselines</h3>
+            <p class="content has-text-justified mb-4">
+                Comparison against baseline methods on generation with dynamic head pose. CapTalk produces more
+                natural head movements and lip synchronization.
+            </p>
+
+            <div class="columns is-multiline">
+                <div class="column is-half"><div class="card video-card"><video controls playsinline preload="metadata" poster="./static/posters/with_pose_1.jpg" src="./static/videos/with_pose/1.mp4"></video></div></div>
+                <div class="column is-half"><div class="card video-card"><video controls playsinline preload="metadata" poster="./static/posters/with_pose_2.jpg" src="./static/videos/with_pose/2.mp4"></video></div></div>
+                <div class="column is-half"><div class="card video-card"><video controls playsinline preload="metadata" poster="./static/posters/with_pose_3.jpg" src="./static/videos/with_pose/3.mp4"></video></div></div>
+                <div class="column is-half"><div class="card video-card"><video controls playsinline preload="metadata" poster="./static/posters/with_pose_4.jpg" src="./static/videos/with_pose/4.mp4"></video></div></div>
+                <div class="column is-half"><div class="card video-card"><video controls playsinline preload="metadata" poster="./static/posters/with_pose_5.jpg" src="./static/videos/with_pose/5.mp4"></video></div></div>
+                <div class="column is-half"><div class="card video-card"><video controls playsinline preload="metadata" poster="./static/posters/with_pose_6.jpg" src="./static/videos/with_pose/6.mp4"></video></div></div>
+                <div class="column is-half"><div class="card video-card"><video controls playsinline preload="metadata" poster="./static/posters/with_pose_7.jpg" src="./static/videos/with_pose/7.mp4"></video></div></div>
+                <div class="column is-half"><div class="card video-card"><video controls playsinline preload="metadata" poster="./static/posters/with_pose_8.jpg" src="./static/videos/with_pose/8.mp4"></video></div></div>
+                <div class="column is-half"><div class="card video-card"><video controls playsinline preload="metadata" poster="./static/posters/with_pose_9.jpg" src="./static/videos/with_pose/9.mp4"></video></div></div>
+                <div class="column is-half"><div class="card video-card"><video controls playsinline preload="metadata" poster="./static/posters/with_pose_10.jpg" src="./static/videos/with_pose/10.mp4"></video></div></div>
+                <div class="column is-half"><div class="card video-card"><video controls playsinline preload="metadata" poster="./static/posters/with_pose_11.jpg" src="./static/videos/with_pose/11.mp4"></video></div></div>
+                <div class="column is-half"><div class="card video-card"><video controls playsinline preload="metadata" poster="./static/posters/with_pose_12.jpg" src="./static/videos/with_pose/12.mp4"></video></div></div>
+                <div class="column is-half"><div class="card video-card"><video controls playsinline preload="metadata" poster="./static/posters/with_pose_13.jpg" src="./static/videos/with_pose/13.mp4"></video></div></div>
+                <div class="column is-half"><div class="card video-card"><video controls playsinline preload="metadata" poster="./static/posters/with_pose_14.jpg" src="./static/videos/with_pose/14.mp4"></video></div></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== BibTeX ===== -->
+    <section class="section" id="bibtex">
+        <div class="container is-max-desktop">
+            <h2 class="title is-3 has-text-centered">BibTeX</h2>
+            <div class="bibtex-container">
+<pre><code>@inproceedings{chu2026captalk,
+    title     = {{CapTalk}: Text-Guided Stylization and Speech-Driven 3D Head Animation},
+    author    = {Chu, Xuangeng and Gan, Yuan and Cui, Ziteng and Liu, Shuhong and Wang, Jian and Zhou, Bing and Harada, Tatsuya},
+    booktitle = {International Conference on Learning Representations (ICLR)},
+    year      = {2026}
+}
+</code></pre>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
